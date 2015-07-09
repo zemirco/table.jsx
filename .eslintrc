@@ -1,0 +1,13 @@
+
+parser: babel-eslint
+
+plugins:
+  - react
+
+env:
+  browser: true
+  node: true
+  jasmine: true
+
+rules:
+  quotes: [2, "single"]

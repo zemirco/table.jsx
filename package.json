@@ -1,0 +1,35 @@
+{
+  "name": "table.jsx",
+  "version": "1.0.0",
+  "description": "React Table component",
+  "main": "Table.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zemirco/table.jsx"
+  },
+  "author": "Mirco Zeiss <mirco.zeiss@gmail.com>",
+  "license": "MIT",
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "stage": 0
+        }
+      ]
+    ]
+  },
+  "peerDependencies": {
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^3.1.23",
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
+    "eslint": "^0.24.0",
+    "eslint-plugin-react": "^2.6.4"
+  }
+}
