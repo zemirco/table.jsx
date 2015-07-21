@@ -12,10 +12,23 @@ class Table extends React.Component {
 
 
   /**
+   * Property types
+   */
+  static propTypes = {
+    color: React.PropTypes.string,
+    head: React.PropTypes.array,
+    body: React.PropTypes.array
+  }
+
+
+
+  /**
    * Default properties
    */
   static defaultProps = {
-    color: '#fff8dc'
+    color: '#fff8dc',
+    head: [],
+    body: [[]]
   }
 
 
