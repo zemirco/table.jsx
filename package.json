@@ -1,6 +1,6 @@
 {
   "name": "table.jsx",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "React Table component",
   "main": "Table.js",
   "scripts": {
