@@ -12,58 +12,6 @@ class Table extends React.Component {
 
 
   /**
-   * Render component
-   */
-  render() {
-
-    let {highlight} = this.props;
-
-    var body = this.props.body.map((row, index) => {
-      var emphasize = false;
-      if (typeof highlight === 'number' && highlight === index ) {
-        emphasize = true;
-      } else if (Array.isArray(highlight)) {
-        if (highlight[0] <= index && index <= highlight[1]) {
-          emphasize = true;
-        }
-      }
-      return (
-        <Row key={index} highlight={emphasize}>
-          {row}
-        </Row>
-      );
-    });
-
-    return (
-      <table className="table table-hover">
-        <tbody>
-          {body}
-        </tbody>
-      </table>
-    );
-  }
-
-}
-
-
-
-/**
- * Row component
- */
-class Row extends React.Component {
-
-
-
-  /**
-   * Property types
-   */
-  static propTypes = {
-    color: React.PropTypes.string
-  }
-
-
-
-  /**
    * Default properties
    */
   static defaultProps = {
@@ -77,16 +25,43 @@ class Row extends React.Component {
    */
   render() {
 
-    var style = {
-      backgroundColor: this.props.color
-    };
+    let {highlight, color} = this.props;
 
-    return (
-      <tr style={this.props.highlight ? style : null}>
-        {this.props.children.map((cell, index) =>
-          <td key={index}>{cell}</td>
+    var head = (
+      <tr>
+        {this.props.head.map((cell, j) =>
+          <th key={j}>{cell}</th>
         )}
       </tr>
+    );
+
+    var body = this.props.body.map((row, i) => {
+      var emphasize = false;
+      if (typeof highlight === 'number' && highlight === i ) {
+        emphasize = true;
+      } else if (Array.isArray(highlight)) {
+        if (highlight[0] <= i && i <= highlight[1]) {
+          emphasize = true;
+        }
+      }
+      return (
+        <tr key={i} style={emphasize ? {backgroundColor: color} : null}>
+          {row.map((cell, j) =>
+            <td key={j}>{cell}</td>
+          )}
+        </tr>
+      );
+    });
+
+    return (
+      <table className="table table-hover">
+        <thead>
+          {head}
+        </thead>
+        <tbody>
+          {body}
+        </tbody>
+      </table>
     );
   }
 
